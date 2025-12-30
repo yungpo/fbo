@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>KillerBayer FBO — маркетплейс Якутии</title>
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="logo" href="/">KillerBayer <span>FBO</span></a>
+        <nav class="nav">
+          <a href="#catalog">Каталог</a>
+          <a href="#local">Локальный закуп</a>
+          <a href="#delivery">Логистика</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+        <div class="header-actions">
+          <button class="ghost-button">Личный кабинет</button>
+          <button class="primary-button">Оформить заказ</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="hero">
+        <div class="container hero-grid">
+          <div class="hero-content">
+            <p class="pill">Якутск • доставка 4–30 дней</p>
+            <h1 id="hero-title">Единый байер для покупок из Азии и локального рынка</h1>
+            <p id="hero-subtitle">
+              Покупайте кроссовки, технику и велосипеды без риска. Мы берём поиск,
+              оплату, логистику и выдачу на себя.
+            </p>
+            <div class="hero-actions">
+              <button class="primary-button" id="hero-cta">Сделать заказ</button>
+              <button class="ghost-button">Посмотреть каталог</button>
+            </div>
+            <div class="hero-metrics">
+              <div>
+                <h3>14 дней</h3>
+                <span>Средний срок доставки</span>
+              </div>
+              <div>
+                <h3>0 рисков</h3>
+                <span>Оплата через платформу</span>
+              </div>
+              <div>
+                <h3>100+ позиций</h3>
+                <span>Популярные товары</span>
+              </div>
+            </div>
+          </div>
+          <div class="hero-card" aria-label="Витрина"></div>
+        </div>
+      </section>
+
+      <section class="section" id="catalog">
+        <div class="container">
+          <div class="section-head">
+            <h2>Категории</h2>
+            <p>Собрали топовые позиции — всё, что быстро продаётся в Якутии.</p>
+          </div>
+          <div class="category-grid" id="category-grid"></div>
+        </div>
+      </section>
+
+      <section class="section dark" id="popular">
+        <div class="container">
+          <div class="section-head">
+            <h2>Хиты заказов</h2>
+            <p>Примеры товаров, которые уже заказывают через KillerBayer FBO.</p>
+          </div>
+          <div class="product-grid" id="product-grid"></div>
+        </div>
+      </section>
+
+      <section class="section" id="local">
+        <div class="container local-grid">
+          <div>
+            <h2>Локальный закуп в Якутске</h2>
+            <p>
+              Подключаем проверенных оптовиков с местного рынка. Выбирайте товар по оптовой цене,
+              а мы организуем доставку до двери или в партнёрский пункт выдачи.
+            </p>
+            <ul class="checklist">
+              <li>Оптовые цены без наценок байеров</li>
+              <li>Быстрый доступ к наличию в городе</li>
+              <li>Гарантия качества через наш склад</li>
+            </ul>
+            <button class="primary-button">Подключиться к опту</button>
+          </div>
+          <div class="local-card"></div>
+        </div>
+      </section>
+
+      <section class="section" id="delivery">
+        <div class="container">
+          <div class="section-head">
+            <h2>Логистика и выдача</h2>
+            <p>Доставляем по Якутску и в районы — от центра до самых удалённых деревень.</p>
+          </div>
+          <div class="steps">
+            <div class="step-card">
+              <span>01</span>
+              <h3>Заказ и предоплата</h3>
+              <p>Вы выбираете товар, фиксируете цену и вносите предоплату онлайн.</p>
+            </div>
+            <div class="step-card">
+              <span>02</span>
+              <h3>Закупка и проверка</h3>
+              <p>Мы выкупаем товар, проверяем и упаковываем в фирменный пакет.</p>
+            </div>
+            <div class="step-card">
+              <span>03</span>
+              <h3>Доставка в Якутии</h3>
+              <p>Курьер или партнёрский ПВЗ доставляют заказ за 4–30 дней.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section muted" id="payment">
+        <div class="container">
+          <div class="section-head">
+            <h2>Оплата</h2>
+            <p>Гибкие способы оплаты, чтобы покупка была удобной для каждого.</p>
+          </div>
+          <div class="payment-grid">
+            <div class="payment-card">
+              <h3>Онлайн-оплата</h3>
+              <p>Принимаем карты через СБП и ЮKassa. Безопасная сделка.</p>
+            </div>
+            <div class="payment-card">
+              <h3>Частичная предоплата</h3>
+              <p>Фиксируйте цену, остальную сумму оплачивайте при получении.</p>
+            </div>
+            <div class="payment-card">
+              <h3>Рассрочка / сплит</h3>
+              <p>Подключим партнёров для покупки в рассрочку без лишней бюрократии.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="faq">
+        <div class="container">
+          <div class="section-head">
+            <h2>Ответы на вопросы</h2>
+            <p>Коротко о главном — для быстрого старта.</p>
+          </div>
+          <div class="faq-grid">
+            <div class="faq-item">
+              <h3>Как быстро доставляете?</h3>
+              <p>От 4 до 30 дней. Средний срок — 14 дней, зависит от загрузки.</p>
+            </div>
+            <div class="faq-item">
+              <h3>Можно ли заказать товар под запрос?</h3>
+              <p>Да, оставьте заявку — мы найдём товар и подтвердим цену.</p>
+            </div>
+            <div class="faq-item">
+              <h3>Где находится склад?</h3>
+              <p>Склад находится в Якутске, поэтому выдаём быстро и проверяем качество.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a class="logo" href="/">KillerBayer <span>FBO</span></a>
+          <p>Единая платформа закупки и доставки для Якутии.</p>
+        </div>
+        <div>
+          <h4>Навигация</h4>
+          <a href="#catalog">Категории</a>
+          <a href="#local">Локальный закуп</a>
+          <a href="#delivery">Логистика</a>
+        </div>
+        <div>
+          <h4>Поддержка</h4>
+          <a href="#">Правила покупки</a>
+          <a href="#">Политика возврата</a>
+          <a href="#">Контакты</a>
+        </div>
+        <div>
+          <h4>Админ-панель</h4>
+          <a href="admin.html">Редактировать сайт</a>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <span>© 2024 KillerBayer FBO. Все права защищены.</span>
+      </div>
+    </footer>
+
+    <script src="assets/app.js"></script>
+  </body>
+</html>
