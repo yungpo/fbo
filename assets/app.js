@@ -98,6 +98,8 @@ const defaultContent = {
       price: "от 15 900 ₽",
       gender: "men",
       category: "shoes",
+      image:
+        "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=600&auto=format&fit=crop",
     },
     {
       title: "New Balance 530",
@@ -105,6 +107,8 @@ const defaultContent = {
       price: "от 13 500 ₽",
       gender: "women",
       category: "shoes",
+      image:
+        "https://images.unsplash.com/photo-1528701800489-20be2c0e64cf?q=80&w=600&auto=format&fit=crop",
     },
     {
       title: "iPhone 15 128GB",
@@ -112,6 +116,8 @@ const defaultContent = {
       price: "от 92 000 ₽",
       gender: "unisex",
       category: "phones",
+      image:
+        "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=600&auto=format&fit=crop",
     },
     {
       title: "Giant Talon 2",
@@ -119,6 +125,8 @@ const defaultContent = {
       price: "от 64 000 ₽",
       gender: "unisex",
       category: "bikes",
+      image:
+        "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=600&auto=format&fit=crop",
     },
   ],
   shelves: [
@@ -403,11 +411,14 @@ if (productGrid) {
   productGrid.innerHTML = "";
   content.products.forEach((product) => {
     const card = document.createElement("article");
-    card.className = "product-card";
+    card.className = "product-card media";
     card.innerHTML = `
-      <h3>${product.title}</h3>
-      <p>${product.note}</p>
-      <p class="price">${product.price}</p>
+      <div class="product-card__image" style="background-image: url('${product.image}')"></div>
+      <div class="product-card__body">
+        <h3>${product.title}</h3>
+        <p>${product.note}</p>
+        <p class="price">${product.price}</p>
+      </div>
     `;
     productGrid.appendChild(card);
   });
@@ -486,10 +497,13 @@ if (shelfList) {
           .slice(0, 4)
           .map(
             (product) => `
-          <article class="product-card light">
-            <h3>${product.title}</h3>
-            <p>${product.note}</p>
-            <p class="price">${product.price}</p>
+          <article class="product-card light media">
+            <div class="product-card__image" style="background-image: url('${product.image}')"></div>
+            <div class="product-card__body">
+              <h3>${product.title}</h3>
+              <p>${product.note}</p>
+              <p class="price">${product.price}</p>
+            </div>
           </article>
         `
           )
@@ -521,11 +535,14 @@ if (categoryProducts) {
   categoryProducts.innerHTML = "";
   filtered.forEach((product) => {
     const card = document.createElement("article");
-    card.className = "product-card light";
+    card.className = "product-card light media";
     card.innerHTML = `
-      <h3>${product.title}</h3>
-      <p>${product.note}</p>
-      <p class="price">${product.price}</p>
+      <div class="product-card__image" style="background-image: url('${product.image}')"></div>
+      <div class="product-card__body">
+        <h3>${product.title}</h3>
+        <p>${product.note}</p>
+        <p class="price">${product.price}</p>
+      </div>
     `;
     categoryProducts.appendChild(card);
   });

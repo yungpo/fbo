@@ -99,6 +99,8 @@ const defaultContent = {
       price: "от 15 900 ₽",
       gender: "men",
       category: "shoes",
+      image:
+        "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=600&auto=format&fit=crop",
     },
     {
       title: "New Balance 530",
@@ -106,6 +108,8 @@ const defaultContent = {
       price: "от 13 500 ₽",
       gender: "women",
       category: "shoes",
+      image:
+        "https://images.unsplash.com/photo-1528701800489-20be2c0e64cf?q=80&w=600&auto=format&fit=crop",
     },
     {
       title: "iPhone 15 128GB",
@@ -113,6 +117,8 @@ const defaultContent = {
       price: "от 92 000 ₽",
       gender: "unisex",
       category: "phones",
+      image:
+        "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=600&auto=format&fit=crop",
     },
     {
       title: "Giant Talon 2",
@@ -120,6 +126,8 @@ const defaultContent = {
       price: "от 64 000 ₽",
       gender: "unisex",
       category: "bikes",
+      image:
+        "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=600&auto=format&fit=crop",
     },
   ],
   aboutTitle: "О нас",
@@ -304,11 +312,11 @@ const renderCategories = () => {
 const renderProducts = () => {
   productList.innerHTML = "";
   content.products.forEach((product, index) => {
-    const value = `${product.title} — ${product.price} — ${product.note} — ${product.gender} — ${product.category}`;
+    const value = `${product.title} — ${product.price} — ${product.note} — ${product.gender} — ${product.category} — ${product.image}`;
     const item = createListItem(
       value,
       (newValue) => {
-        const [title, price, note, gender, category] = newValue
+        const [title, price, note, gender, category, image] = newValue
           .split("—")
           .map((text) => text.trim());
         content.products[index] = {
@@ -317,6 +325,7 @@ const renderProducts = () => {
           note: note || product.note,
           gender: gender || product.gender,
           category: category || product.category,
+          image: image || product.image,
         };
       },
       () => {
@@ -406,6 +415,8 @@ addProductButton.addEventListener("click", () => {
     price: "от 0 ₽",
     gender: "unisex",
     category: "shoes",
+    image:
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=600&auto=format&fit=crop",
   });
   renderProducts();
 });
