@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>KillerBayer FBO — админ-панель</title>
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body class="admin-body">
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="logo" href="index.html">KillerBayer <span>FBO</span></a>
+        <div class="header-actions">
+          <a class="ghost-button" href="index.html">Вернуться на сайт</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="admin">
+      <div class="container">
+        <div class="section-head">
+          <h1>Админ-панель</h1>
+          <p>Обновляйте баннеры, тексты и категории без разработчиков.</p>
+        </div>
+
+        <form class="admin-form" id="admin-form">
+          <section class="admin-card">
+            <h2>Главный баннер</h2>
+            <label>
+              Заголовок
+              <input type="text" name="heroTitle" />
+            </label>
+            <label>
+              Подзаголовок
+              <textarea name="heroSubtitle" rows="3"></textarea>
+            </label>
+            <label>
+              Текст кнопки
+              <input type="text" name="heroCta" />
+            </label>
+          </section>
+
+          <section class="admin-card">
+            <h2>Категории</h2>
+            <div id="category-list" class="admin-list"></div>
+            <button class="ghost-button" type="button" id="add-category">Добавить категорию</button>
+          </section>
+
+          <section class="admin-card">
+            <h2>Контакты</h2>
+            <label>
+              Телефон поддержки
+              <input type="text" name="supportPhone" />
+            </label>
+            <label>
+              Telegram
+              <input type="text" name="supportTelegram" />
+            </label>
+          </section>
+
+          <div class="admin-actions">
+            <button class="primary-button" type="submit">Сохранить изменения</button>
+            <button class="ghost-button" type="button" id="reset-data">Сбросить к базовым</button>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <script src="assets/admin.js"></script>
+  </body>
+</html>
