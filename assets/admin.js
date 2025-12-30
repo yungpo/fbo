@@ -28,6 +28,26 @@ const defaultContent = {
       link: "local.html",
     },
   ],
+  promoBanner: {
+    title: "Сезонные предложения",
+    subtitle: "Скидки на популярные категории и быстрые поставки по Якутии.",
+    badge: "-30% до 31.12",
+    cta: "Перейти к акциям",
+    link: "catalog.html",
+    image:
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1400&auto=format&fit=crop",
+  },
+  brands: [
+    "Nike",
+    "New Balance",
+    "Adidas",
+    "Jordan",
+    "ASICS",
+    "Puma",
+    "Converse",
+    "Vans",
+    "Timberland",
+  ],
   genderTiles: [
     {
       title: "Мужчинам",
@@ -139,6 +159,7 @@ const loadContent = () => {
 const form = document.getElementById("admin-form");
 const metricsList = document.getElementById("metrics-list");
 const bannerList = document.getElementById("banner-list");
+const brandList = document.getElementById("brand-list");
 const genderList = document.getElementById("gender-list");
 const categoryList = document.getElementById("category-list");
 const productList = document.getElementById("product-list");
@@ -146,6 +167,7 @@ const localList = document.getElementById("local-list");
 
 const addMetricButton = document.getElementById("add-metric");
 const addBannerButton = document.getElementById("add-banner");
+const addBrandButton = document.getElementById("add-brand");
 const addGenderButton = document.getElementById("add-gender");
 const addCategoryButton = document.getElementById("add-category");
 const addProductButton = document.getElementById("add-product");
@@ -212,6 +234,24 @@ const renderBanners = () => {
       }
     );
     bannerList.appendChild(item);
+  });
+};
+
+const renderBrands = () => {
+  if (!brandList) return;
+  brandList.innerHTML = "";
+  content.brands.forEach((brand, index) => {
+    const item = createListItem(
+      brand,
+      (value) => {
+        content.brands[index] = value || brand;
+      },
+      () => {
+        content.brands.splice(index, 1);
+        renderBrands();
+      }
+    );
+    brandList.appendChild(item);
   });
 };
 
@@ -311,6 +351,12 @@ const populateForm = () => {
   form.heroSubtitle.value = content.heroSubtitle;
   form.heroCta.value = content.heroCta;
   form.heroSecondary.value = content.heroSecondary;
+  form.promoTitle.value = content.promoBanner.title;
+  form.promoSubtitle.value = content.promoBanner.subtitle;
+  form.promoBadge.value = content.promoBanner.badge;
+  form.promoCta.value = content.promoBanner.cta;
+  form.promoLink.value = content.promoBanner.link;
+  form.promoImage.value = content.promoBanner.image;
   form.aboutTitle.value = content.aboutTitle;
   form.aboutText.value = content.aboutText;
   form.localTitle.value = content.localTitle;
@@ -321,6 +367,7 @@ const populateForm = () => {
   form.footerText.value = content.footerText;
   renderMetrics();
   renderBanners();
+  renderBrands();
   renderGenderTiles();
   renderCategories();
   renderProducts();
@@ -335,6 +382,11 @@ addMetricButton.addEventListener("click", () => {
 addBannerButton.addEventListener("click", () => {
   content.banners.push({ title: "Новый баннер", subtitle: "Описание", link: "#" });
   renderBanners();
+});
+
+addBrandButton.addEventListener("click", () => {
+  content.brands.push("Новый бренд");
+  renderBrands();
 });
 
 addGenderButton.addEventListener("click", () => {
@@ -378,6 +430,14 @@ form.addEventListener("submit", (event) => {
     heroSubtitle: form.heroSubtitle.value.trim() || defaultContent.heroSubtitle,
     heroCta: form.heroCta.value.trim() || defaultContent.heroCta,
     heroSecondary: form.heroSecondary.value.trim() || defaultContent.heroSecondary,
+    promoBanner: {
+      title: form.promoTitle.value.trim() || defaultContent.promoBanner.title,
+      subtitle: form.promoSubtitle.value.trim() || defaultContent.promoBanner.subtitle,
+      badge: form.promoBadge.value.trim() || defaultContent.promoBanner.badge,
+      cta: form.promoCta.value.trim() || defaultContent.promoBanner.cta,
+      link: form.promoLink.value.trim() || defaultContent.promoBanner.link,
+      image: form.promoImage.value.trim() || defaultContent.promoBanner.image,
+    },
     aboutTitle: form.aboutTitle.value.trim() || defaultContent.aboutTitle,
     aboutText: form.aboutText.value.trim() || defaultContent.aboutText,
     localTitle: form.localTitle.value.trim() || defaultContent.localTitle,

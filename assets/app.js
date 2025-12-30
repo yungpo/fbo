@@ -27,6 +27,26 @@ const defaultContent = {
       link: "local.html",
     },
   ],
+  promoBanner: {
+    title: "Сезонные предложения",
+    subtitle: "Скидки на популярные категории и быстрые поставки по Якутии.",
+    badge: "-30% до 31.12",
+    cta: "Перейти к акциям",
+    link: "catalog.html",
+    image:
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1400&auto=format&fit=crop",
+  },
+  brands: [
+    "Nike",
+    "New Balance",
+    "Adidas",
+    "Jordan",
+    "ASICS",
+    "Puma",
+    "Converse",
+    "Vans",
+    "Timberland",
+  ],
   genderTiles: [
     {
       title: "Мужчинам",
@@ -100,6 +120,11 @@ const defaultContent = {
       gender: "unisex",
       category: "bikes",
     },
+  ],
+  shelves: [
+    { title: "Кроссовки недели", category: "shoes" },
+    { title: "Гаджеты и телефоны", category: "phones" },
+    { title: "Велосипеды и спорт", category: "bikes" },
   ],
   aboutTitle: "О нас",
   aboutText:
@@ -307,6 +332,36 @@ if (bannerGrid) {
   });
 }
 
+const promoBanner = document.getElementById("promo-banner");
+if (promoBanner) {
+  promoBanner.innerHTML = `
+    <div class="promo-banner" style="background-image: url('${content.promoBanner.image}')">
+      <div class="promo-overlay"></div>
+      <div class="promo-content">
+        <span class="promo-badge">${content.promoBanner.badge}</span>
+        <h3>${content.promoBanner.title}</h3>
+        <p>${content.promoBanner.subtitle}</p>
+        <a class="ghost-button" href="${content.promoBanner.link}">${content.promoBanner.cta}</a>
+      </div>
+    </div>
+  `;
+}
+
+const renderBrands = (containerId) => {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+  container.innerHTML = "";
+  content.brands.forEach((brand) => {
+    const chip = document.createElement("span");
+    chip.className = "brand-chip";
+    chip.textContent = brand;
+    container.appendChild(chip);
+  });
+};
+
+renderBrands("brand-list");
+renderBrands("brand-list-catalog");
+
 const genderGrid = document.getElementById("gender-grid");
 if (genderGrid) {
   genderGrid.innerHTML = "";
@@ -411,6 +466,37 @@ if (catalogGender) {
       <span>Открыть каталог</span>
     `;
     catalogGender.appendChild(card);
+  });
+}
+
+const shelfList = document.getElementById("shelf-list");
+if (shelfList) {
+  shelfList.innerHTML = "";
+  content.shelves.forEach((shelf) => {
+    const section = document.createElement("section");
+    section.className = "shelf";
+    const items = content.products.filter((product) => product.category === shelf.category);
+    section.innerHTML = `
+      <div class="shelf-head">
+        <h3>${shelf.title}</h3>
+        <a href="category.html?category=${shelf.category}">Смотреть все</a>
+      </div>
+      <div class="product-grid">
+        ${items
+          .slice(0, 4)
+          .map(
+            (product) => `
+          <article class="product-card light">
+            <h3>${product.title}</h3>
+            <p>${product.note}</p>
+            <p class="price">${product.price}</p>
+          </article>
+        `
+          )
+          .join("")}
+      </div>
+    `;
+    shelfList.appendChild(section);
   });
 }
 
