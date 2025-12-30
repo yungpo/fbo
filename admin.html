@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>KillerBayer FBO — админ-панель</title>
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body class="admin-body">
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="logo" href="index.html">KillerBayer <span>FBO</span></a>
+        <div class="header-actions">
+          <span class="admin-note">Админ-панель будет скрыта после запуска.</span>
+          <a class="ghost-button" href="index.html">Вернуться на сайт</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="admin">
+      <div class="container">
+        <div class="section-head">
+          <h1>Админ-панель</h1>
+          <p>Обновляйте баннеры, плитки, товары и тексты без разработчиков.</p>
+        </div>
+
+        <form class="admin-form" id="admin-form">
+          <section class="admin-card">
+            <h2>Главный баннер</h2>
+            <label>
+              Строка-метка
+              <input type="text" name="heroPill" />
+            </label>
+            <label>
+              Заголовок
+              <input type="text" name="heroTitle" />
+            </label>
+            <label>
+              Подзаголовок
+              <textarea name="heroSubtitle" rows="3"></textarea>
+            </label>
+            <label>
+              Текст кнопки
+              <input type="text" name="heroCta" />
+            </label>
+            <label>
+              Текст второй кнопки
+              <input type="text" name="heroSecondary" />
+            </label>
+          </section>
+
+          <section class="admin-card">
+            <h2>Метрики на первом экране</h2>
+            <div id="metrics-list" class="admin-list"></div>
+            <button class="ghost-button" type="button" id="add-metric">Добавить метрику</button>
+          </section>
+
+          <section class="admin-card">
+            <h2>Плитки баннеров</h2>
+            <div id="banner-list" class="admin-list"></div>
+            <button class="ghost-button" type="button" id="add-banner">Добавить плитку</button>
+          </section>
+
+          <section class="admin-card">
+            <h2>Плитки Мужчинам / Женщинам</h2>
+            <div id="gender-list" class="admin-list"></div>
+            <button class="ghost-button" type="button" id="add-gender">Добавить плитку</button>
+          </section>
+
+          <section class="admin-card">
+            <h2>Категории</h2>
+            <div id="category-list" class="admin-list"></div>
+            <button class="ghost-button" type="button" id="add-category">Добавить категорию</button>
+          </section>
+
+          <section class="admin-card">
+            <h2>Примеры товаров</h2>
+            <div id="product-list" class="admin-list"></div>
+            <button class="ghost-button" type="button" id="add-product">Добавить товар</button>
+          </section>
+
+          <section class="admin-card">
+            <h2>О нас</h2>
+            <label>
+              Заголовок
+              <input type="text" name="aboutTitle" />
+            </label>
+            <label>
+              Текст
+              <textarea name="aboutText" rows="4"></textarea>
+            </label>
+          </section>
+
+          <section class="admin-card">
+            <h2>Локальный закуп</h2>
+            <label>
+              Заголовок
+              <input type="text" name="localTitle" />
+            </label>
+            <label>
+              Текст
+              <textarea name="localText" rows="3"></textarea>
+            </label>
+            <label>
+              Текст кнопки
+              <input type="text" name="localCta" />
+            </label>
+            <div id="local-list" class="admin-list"></div>
+            <button class="ghost-button" type="button" id="add-local">Добавить пункт</button>
+          </section>
+
+          <section class="admin-card">
+            <h2>Контакты</h2>
+            <label>
+              Телефон поддержки
+              <input type="text" name="supportPhone" />
+            </label>
+            <label>
+              Telegram
+              <input type="text" name="supportTelegram" />
+            </label>
+            <label>
+              Текст подвала
+              <input type="text" name="footerText" />
+            </label>
+          </section>
+
+          <div class="admin-actions">
+            <button class="primary-button" type="submit">Сохранить изменения</button>
+            <button class="ghost-button" type="button" id="reset-data">Сбросить к базовым</button>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <script src="assets/admin.js"></script>
+  </body>
+</html>
